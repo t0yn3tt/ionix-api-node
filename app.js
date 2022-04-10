@@ -4,6 +4,8 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const config = require('./utils/config');
 
+const port = process.env.PORT || 8080;
+
 //middlewares
 const app = express();
 
@@ -28,6 +30,9 @@ app.get('/api/token', (req, res) => {
 
 app.use('/api', personasRoutes);
 
+app.get('/', (req, res) => {
+    res.send("Api Node");
+});
 
 
-app.listen(8080);
+app.listen(port);
